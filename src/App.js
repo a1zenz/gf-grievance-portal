@@ -12,7 +12,7 @@ export default function GrievancePortal() {
   const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdH-EtJmIsgfCyuc8bdtWhrTubO_dVbVz5vmLWAUIXgk2RCwQ/formResponse";
 
   const formData = new FormData();
-  formData.append("entry.1996639167", grievance);    // grievance
+  formData.append("entry.1996639167", grievance);    // grievances
   formData.append("entry.1748929194", level);        // annoyance level
   formData.append("entry.885666968", compensation); // compensation
 
