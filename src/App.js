@@ -40,7 +40,7 @@ export default function GrievancePortal() {
             <p className="text-lg font-semibold text-green-600">
               Grievance submitted successfully!
             </p>
-            <p className="text-sm text-gray-500">We'll review your complaint promptly 😇</p>
+            <p className="text-sm text-gray-500">Ayush will review your complaint promptly, and think if this is a matter worth his attention. Stay tuned.😇</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 text-left">
