@@ -28,7 +28,7 @@ export default function GrievancePortal() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-pink-300 p-4">
       <div className="bg-white p-6 rounded-2xl shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-pink-600">GF Grievance Portal 💌</h1>
+        <h1 className="text-2xl font-bold mb-4 text-pink-600">Tishaaaa Grievance Portal 💌</h1>
 
         {submitted ? (
           <div className="text-center">
