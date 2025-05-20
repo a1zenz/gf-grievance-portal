@@ -29,12 +29,7 @@ export default function GrievancePortal() {
   };
 
   return (
-    <div className="min-h-screen bg-pink-200 flex flex-col items-center justify-center p-6 text-center">
-      <img
-        src="https://i.imgur.com/CaKdFMq.png"
-        alt="heart graphic"
-        className="w-28 mb-4 animate-bounce"
-      />
+    <div className="min-h-screen bg-pink-100 flex flex-col items-center justify-center p-6 text-center">
       <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-xl">
         <h1 className="text-4xl font-extrabold text-pink-600 mb-6">
           Tishaaaa's Grievance Portal 💌
