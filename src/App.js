@@ -9,7 +9,7 @@ export default function GrievancePortal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formUrl = "https://formspree.io/f/xpwdnbdj"; // replace with your Formspree form ID
+    const formUrl = "https://formspree.io/f/xpwdnbdj";
 
     const payload = {
       grievance,
@@ -29,9 +29,14 @@ export default function GrievancePortal() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center p-6">
-      <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-xl">
-        <h1 className="text-3xl font-extrabold text-center text-pink-600 mb-6">
+    <div className="min-h-screen bg-pink-200 flex flex-col items-center justify-center p-6 text-center">
+      <img
+        src="https://i.imgur.com/CaKdFMq.png"
+        alt="heart graphic"
+        className="w-28 mb-4 animate-bounce"
+      />
+      <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-xl">
+        <h1 className="text-4xl font-extrabold text-pink-600 mb-6">
           Tishaaaa's Grievance Portal 💌
         </h1>
 
@@ -43,7 +48,7 @@ export default function GrievancePortal() {
             <p className="text-sm text-gray-500">We'll review your complaint promptly 😇</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 text-left">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Describe your grievance
