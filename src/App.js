@@ -6,24 +6,28 @@ export default function GrievancePortal() {
   const [compensation, setCompensation] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
-  const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdH-EtJmIsgfCyuc8bdtWhrTubO_dVbVz5vmLWAUIXgk2RCwQ/formResponse";
+  const formUrl = "https://formspree.io/f/xpwdnbdj"; // replace with yours
 
-  const formData = new FormData();
-  formData.append("entry.1996639167", grievance);    // grievances
-  formData.append("entry.1748929194", level);        // annoyance level
-  formData.append("entry.885666968", compensation); // compensation
+  const payload = {
+    grievance,
+    level,
+    compensation,
+  };
 
   await fetch(formUrl, {
     method: "POST",
-    mode: "no-cors",
-    body: formData,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
   });
 
   setSubmitted(true);
 };
+
 
 
   return (
