@@ -7,23 +7,24 @@ export default function GrievancePortal() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formUrl = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+  const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdH-EtJmIsgfCyuc8bdtWhrTubO_dVbVz5vmLWAUIXgk2RCwQ/formResponse";
 
-    const formData = new FormData();
-    formData.append("entry.1234567890", grievance);     // Replace with actual entry ID for grievance
-    formData.append("entry.2345678901", level);         // Replace with actual entry ID for level
-    formData.append("entry.3456789012", compensation);  // Replace with actual entry ID for compensation
+  const formData = new FormData();
+  formData.append("entry.1996639167", grievance);    // grievance
+  formData.append("entry.1748929194", level);        // annoyance level
+  formData.append("entry.885666968", compensation); // compensation
 
-    await fetch(formUrl, {
-      method: "POST",
-      mode: "no-cors",
-      body: formData,
-    });
+  await fetch(formUrl, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData,
+  });
 
-    setSubmitted(true);
-  };
+  setSubmitted(true);
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-pink-300 p-4">
