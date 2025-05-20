@@ -2,51 +2,56 @@ import React, { useState } from "react";
 
 export default function GrievancePortal() {
   const [grievance, setGrievance] = useState("");
-  const [level, setLevel] = useState("Mildly Annoyed");
+  const [level, setLevel] = useState("Mildly Annoyed 🙄");
   const [compensation, setCompensation] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const formUrl = "https://formspree.io/f/xpwdnbdj"; // replace with yours
+    const formUrl = "https://formspree.io/f/xpwdnbdj"; // replace with your Formspree form ID
 
-  const payload = {
-    grievance,
-    level,
-    compensation,
+    const payload = {
+      grievance,
+      level,
+      compensation,
+    };
+
+    await fetch(formUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    setSubmitted(true);
   };
 
-  await fetch(formUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-
-  setSubmitted(true);
-};
-
-
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-pink-300 p-4">
-      <div className="bg-white p-6 rounded-2xl shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-pink-600">Tishaaaa Grievance Portal 💌</h1>
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center p-6">
+      <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-xl">
+        <h1 className="text-3xl font-extrabold text-center text-pink-600 mb-6">
+          Tishaaaa's Grievance Portal 💌
+        </h1>
 
         {submitted ? (
-          <div className="text-center">
-            <p className="text-green-600 text-lg font-semibold mb-2">Grievance submitted successfully!</p>
-            <p className="text-sm">You may now proceed to make up for it 🥺</p>
+          <div className="text-center space-y-2">
+            <p className="text-lg font-semibold text-green-600">
+              Grievance submitted successfully!
+            </p>
+            <p className="text-sm text-gray-500">We'll review your complaint promptly 😇</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Describe your grievance</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Describe your grievance
+              </label>
               <textarea
-                className="mt-1 block w-full p-2 border rounded-md"
-                rows={3}
+                className="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:ring-pink-400 focus:border-pink-400"
+                rows={4}
+                placeholder="What went wrong? Be honest... 😔"
                 value={grievance}
                 onChange={(e) => setGrievance(e.target.value)}
                 required
@@ -54,9 +59,11 @@ const handleSubmit = async (e) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">Annoyance Level</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Annoyance Level
+              </label>
               <select
-                className="mt-1 block w-full p-2 border rounded-md"
+                className="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:ring-pink-400 focus:border-pink-400"
                 value={level}
                 onChange={(e) => setLevel(e.target.value)}
               >
@@ -69,11 +76,13 @@ const handleSubmit = async (e) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">Preferred Compensation</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Preferred Compensation
+              </label>
               <input
                 type="text"
-                className="mt-1 block w-full p-2 border rounded-md"
-                placeholder="e.g. 1 ice cream, apology, 10 kisses"
+                className="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:ring-pink-400 focus:border-pink-400"
+                placeholder="e.g. 1 ice cream, apology, 10 kisses 💋"
                 value={compensation}
                 onChange={(e) => setCompensation(e.target.value)}
               />
@@ -81,7 +90,7 @@ const handleSubmit = async (e) => {
 
             <button
               type="submit"
-              className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-xl"
+              className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-xl transition duration-300"
             >
               Submit Grievance
             </button>
